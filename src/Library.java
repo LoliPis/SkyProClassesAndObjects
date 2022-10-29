@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Library {
@@ -23,10 +24,11 @@ public class Library {
                 books[i] = new Book(sc.nextLine(), temporaryAuthor, sc.nextInt());
                 System.out.println("Еще одну?");
             } else if (addBook.equals("нет")){
-                break;
+                return;
             }
         }
     }
+
 
     public void findBook(String bookTitle){
         System.out.println("Какую хотите найти книгу?  Введите название");
@@ -35,13 +37,39 @@ public class Library {
                     System.out.printf(" \"%s by %s %s was published in %s \" ", books[i].getTitle(),
                             books[i].getAuthor().getFamily(), books[i].getAuthor().getName(),
                             books[i].getYearPublishing());
-                    break;
+                    return;
                 } else {
                     System.out.println("Такой книги нет");
                 }
 
         }
     }
+
+    //метод добавления и поиска книги без взаимодействия с пользователем
+    public void addBookInMain(Book book){
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                books[i] = book;
+                return;
+            }
+        }
+    }
+
+
+    public void findBookWithoutPerson(String bookTitle){
+        for (int i = 0; i < books.length; i++) {
+            if (bookTitle.equals(books[i].getTitle())){
+                System.out.printf(" \"%s by %s %s was published in %s \" ", books[i].getTitle(),
+                        books[i].getAuthor().getFamily(), books[i].getAuthor().getName(),
+                        books[i].getYearPublishing());
+                return;
+            } else {
+                System.out.println("Такой книги нет");
+            }
+
+        }
+    }
+
 
     public void changeYearPublisherByTitle(String bookTit, int newYearPublisher){
         for (int i = 0; i < books.length; i++) {
@@ -52,4 +80,12 @@ public class Library {
         }
     }
 
+    @Override
+    public String toString() {
+        String str = "";
+        for (int i = 0; i < books.length; i++) {
+           str += books[i].toString() + "\n";
+        }
+        return "Library:\n" + str;
+    }
 }
