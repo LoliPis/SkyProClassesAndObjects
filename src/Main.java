@@ -38,7 +38,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        /*Author tolstoi = new Author("Tolstoi", "Lev");
+        Author tolstoi = new Author("Tolstoi", "Lev");
         Author bulgakov = new Author("Bulgakov", "Michail");
         Book voionaIMir = new Book("Voina i Mir", tolstoi, 1865);
         Book masterIMargarita = new Book("Master i Margarita", bulgakov, 1967);
@@ -56,7 +56,7 @@ public class Main {
         lib1.findBook(bookTitle);
         System.out.println("Введите новый год  публикации");
         int newPublisherYear = sc.nextInt();
-        lib1.changeYearPublisherByTitle(bookTitle, newPublisherYear);*/
+        lib1.changeYearPublisherByTitle(bookTitle, newPublisherYear);
 
 
         //Homework "Методы объектов"
